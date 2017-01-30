@@ -1,0 +1,17 @@
+div.error {
+    color: red;
+}
+
+.error img {
+    opacity: 0.3;
+    filter: alpha(opacity=50);
+    display: block;
+    width: 10%;
+    height: 10%;
+    margin: 0 auto;
+}
+
+.error mark {
+    background-color: black;
+    color: red;
+}

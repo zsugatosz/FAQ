@@ -1,0 +1,28 @@
+{% if tag == "basic" %}
+
+    <div class="border">
+        <h1 id="margin">{{ title }} </h1>
+        <ul class="form-style-1">
+            {{ form_start(faqForm) }}
+            {{ form_widget(faqForm) }}
+            {{ form_end(faqForm) }}
+        </ul>
+    </div>
+
+{% elseif tag == "answer" %}
+
+    <div class="border lighter" id="margin">
+        <h1 id="margin">{{ title }} </h1>
+        <ul class="form-style-1">
+            {{ form_start(faqForm) }}
+            {{ form_row(faqForm.answer) }}
+            {{ form_row(faqForm.saveAnswer) }}
+            {{ form_end(faqForm) }}
+        </ul>
+    </div>
+
+{% endif %}
+
+
+
+

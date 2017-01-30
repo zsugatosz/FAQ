@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <title>
+        {% block title %}FAQ!{% endblock %}
+    </title>
+
+    {% block stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('faqicon2.ico') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/form.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/error.css') }}">
+    {% endblock %}
+
+</head>
+
+<body>
+{% block menu %}{{ include('default/menu.html.twig') }}{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/currentTime.js') }}"></script>
+{% endblock %}
+</body>
+</html>

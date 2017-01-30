@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {#pdf beolvasásátt a KnpSnappyBundle segítségével lehetne megoldani#}
+    <div class="border white" xmlns="http://www.w3.org/1999/html">
+        <h1>Felvételi feladat</h1>
+        <p>Készíts egy GYIK (gyakran ismételt kérdések, FAQ) weboldalt - mint amilyen például a
+            gyakorikerdesek.hu vagy a stackoverflow.com.</p>
+
+        <p>A megvalósításhoz Symfony keretrendszert használj.</p>
+
+        <p>Az alábbi funkcionalitással rendelkezzen:</p>
+
+        <ul>
+            <li> Lehessen kérdéseket felvinni, és azokhoz válaszokat - egy kérdéshez több válasz is
+                lehetséges.
+            </li>
+            <li> Legyen egy listázó felület, ahol a kérdések szerepelnek, és hogy mennyi választ
+                adtak már rá. Ha rákattintunk, akkor bejön a kérdés aloldala.
+            </li>
+            <li> A kérdés aloldalán jelenjen meg a kérdés és a válaszok. Mindkettőt lehessen
+                szerkeszteni és törölni is.
+            </li>
+        </ul>
+        <p> A Kérdéseket és válaszokat adatbázisban tárold.</p>
+        <p> Ezen túl a feladatot tetszőlegesen kiegészítheted további funkciókkal is, ha jut rá időd,
+            energiád. Az elsődleges azonban az legyen, hogy ami elkészül (akár ha nem is tud mindent,
+            ami a kiírásban szerepel), az lecsiszolt, jól működő legyen.</p>
+        <p>Bármilyen kérdésed van, kérdezz tőlünk nyugodtan!</p>
+        <p><b>Határidő:</b> 2017. január 31. 24:00</p>
+        <p>Néhány weboldal segítségképpen:</p>
+        <ul>
+            <li>
+                <a href="https://symfony.com/doc/current/index.html" alt="Symfony" title="Symfony">
+                    https://symfony.com/doc/current/index.html
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

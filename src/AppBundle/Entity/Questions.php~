@@ -1,0 +1,60 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Skolem
+ * Date: 2017. 01. 23.
+ * Time: 19:10
+ */
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="questions")
+ */
+class Questions
+{
+
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(name="qId", type="integer" )
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $qId;
+
+    /**
+     * @ORM\Column(name="shortQuestion", type="text", length=100)
+     */
+    private $shortQuestion;
+
+    /**
+     * @ORM\Column(name="longQuestion", type="text")
+     */
+    private $longQuestion;
+
+    /**
+     * @ORM\Column(name="qTime", type="datetime")
+     */
+    private $qTime;
+
+
+    /**
+     * One Question has Many Answers.
+     * @ORM\OneToMany(targetEntity="Answers", mappedBy="questionId")
+     */
+    private $answers;
+
+    public function __construct() {
+        $this->qTime = new \DateTime('now');
+        $this->answers = new ArrayCollection();
+    }
+
+
+
+
+}

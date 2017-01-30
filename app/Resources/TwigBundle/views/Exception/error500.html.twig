@@ -1,0 +1,10 @@
+{#http://localhost:8000/app_dev.php/_error/500#}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ status_code }} {{ status_text }}{% endblock %}
+
+{% block body %}
+
+    {{ include('default/basicError.html.twig', {title: 'Oops! A szerver hibát észlelt, így nem tudja teljesíteni a kérelmet.'}) }}
+
+{% endblock %}

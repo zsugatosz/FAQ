@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}Kérdések listája{% endblock %}
+{% block body %}
+
+    <div class="border darker">
+        <h1>Kérdések listája</h1>
+        <h3>Válassz egy kérdést és válaszolj</h3>
+    </div>
+
+    {% if viewQuestion |length ==0 %}
+        <p id="margin">Nincsenek még kérdések</p>
+        <a href="{{ path('new_question') }}">Kérdezz</a>
+    {% endif %}
+
+    {% for questionData in viewQuestion %}
+        <div class="border">
+            {{ loop.index }}.
+            <a href="./{{ questionData.qId }}"> {{ questionData.shortQuestion }}</a>
+            <span class="countalignright"> ({{ questionData.getAnswers()|length }})</span>
+            <span class="clear"></span>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

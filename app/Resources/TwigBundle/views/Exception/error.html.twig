@@ -1,0 +1,10 @@
+{#http://localhost:8000/app_dev.php/_error/502#}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ status_code }} {{ status_text }}{% endblock %}
+
+{% block body %}
+
+    {{ include('default/basicError.html.twig', {title: 'Valami nem oké...'}) }}
+
+{% endblock %}

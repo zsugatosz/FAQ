@@ -1,0 +1,24 @@
+{% block navigation %}
+
+    <div class="menu_container">
+        <div class="menu">
+            <ul>
+                <li{% if app.request.get('_route') == 'faq_homepage' %} class="active"{% endif %}>
+                    <a href="{{ path('faq_homepage') }}">Kezdőoldal</a>
+                <li{% if app.request.get('_route') == 'list' %} class="active"{% endif %}>
+                    <a href="{{ path('list') }}">Kérdések</a>
+                <li{% if app.request.get('_route') == 'new_question' %} class="active"{% endif %}>
+                    <a href="{{ path('new_question') }}">Kérdezz</a>
+                <li></li>
+            </ul>
+
+        </div>
+        <div class="menudate"><p id="currentDateTime"></p></div>
+        <div class="empty_space"> <p id="currentDateTime"></p></div>
+    </div>
+
+    <div style="clear: both;"></div>
+
+{% endblock %}
+
+

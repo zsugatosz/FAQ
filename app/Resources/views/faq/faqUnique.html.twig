@@ -1,0 +1,84 @@
+{#Kicsit csúnya a táblázatos megoldás...a gyakorikerdesek.hu alapján #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Kérdés{% endblock %}
+
+{% block body %}
+    {#Question_begin#}
+    {% for questionData in viewQuestion %}
+        <table class="question">
+            <tbody>
+            <tr class="question_head">
+                <td>A kérdés</td>
+            </tr>
+            <tr>
+                <td class="question">
+                    <h1 id="margin">{{ questionData.shortQuestion }}</h1>
+                    {{ questionData.longQuestion }}
+                </td>
+            </tr>
+            <tr>
+                <td><br/>
+                    <table class="status">
+                        <tbody>
+                        <tr>
+                            <td>Létrehozva: {{ questionData.qTime|date('Y-m-d H:i:s') }}</td>
+                            <td id="status_right">
+                                <a href="{{ path('edit', {'id': questionData.qId, 'statement' : 'question' }) }}">Szerkesztés</a>
+                                |
+                                <a href="{{ path('delete', {'id': questionData.qId, 'statement' : 'question' }) }}">Törlés</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <p></p>
+        {#Question_end#}
+        {#-_-#}
+        {#Answer_begin#}
+        <table class="answer" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr class="answer_head">
+                <td colspan="2">A válaszok</td>
+            </tr>
+            {% for answersData in questionData.getAnswers() %}
+                <tr>
+                    <td class="answer">
+                        {{ answersData.answer }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><br/>
+                        <table class="status status_answer">
+                            <tbody>
+                            <tr>
+                                <td>#{{ loop.index }}/{{ questionData.getAnswers()|length }}
+                                    Létrehozva:{{ answersData.aTime|date('Y-m-d H:i:s') }}</td>
+                                <td id="status_right">
+                                    <a href="{{ path('edit', {'id': answersData.aId, 'statement' : 'answer' }) }}">Szerkesztés</a>
+                                    |
+                                    <a href="{{ path('delete', {'id': answersData.aId, 'statement' : 'answer' }) }}">Törlés</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {#Answer_end#}
+
+        {% if questionData.getAnswers() |length ==0 %}
+            <h1 id="margin">Sajnos még nem érkezett válasz :(</h1>
+        {% endif %}
+
+    {% endfor %}
+
+
+    {{ include('default/basicForm.html.twig', {title: 'Új válasz', tag: "answer"}) }}
+
+{% endblock %}
+
